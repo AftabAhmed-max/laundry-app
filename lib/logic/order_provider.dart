@@ -6,6 +6,7 @@ class OrderProvider with ChangeNotifier {
   List<LaundryOrder> _orders = [];
   String _searchQuery = '';
   String _filterStatus = 'All';
+  String get selectedFilter => _filterStatus;
 
   List<LaundryOrder> get orders {
     return _orders.where((order) {
