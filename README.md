@@ -19,12 +19,20 @@ A Flutter application to manage laundry service orders built with Provider state
 - **Platform:** Windows Desktop / Android
 
 ## Project Structure
+```
 lib/
-├── models/        # Data models (LaundryOrder)
-├── data/          # Database helper (SQLite operations)
-├── logic/         # Provider (state management + business logic)
+├── models/
+│   └── order.dart
+├── data/
+│   └── database_helper.dart
+├── logic/
+│   └── order_provider.dart
 └── ui/
-└── screens/   # UI screens (Orders List, Add Order, Dashboard)
+    └── screens/
+        ├── orders_list_screen.dart
+        ├── add_order_screen.dart
+        └── dashboard_screen.dart
+```
 
 ## How to Run
 
