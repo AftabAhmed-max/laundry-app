@@ -53,8 +53,7 @@ class _OrdersListScreenState extends State<OrdersListScreen> {
 
   void _showStatusUpdate(BuildContext context, LaundryOrder order) {
     final provider = Provider.of<OrderProvider>(context, listen: false);
-    final nextStatus = provider.getNextStatus(order.status);
-    if (nextStatus == order.status) return;
+    final statuses = ['Received', 'Washing', 'Ready', 'Delivered'];
 
     showDialog(
       context: context,
@@ -62,20 +61,55 @@ class _OrdersListScreenState extends State<OrdersListScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text('Update Status',
             style: TextStyle(fontWeight: FontWeight.w700)),
-        content: Text(
-            'Move order #${order.id} from "${order.status}" to "$nextStatus"?'),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel')),
-          ElevatedButton(
-            onPressed: () {
-              provider.updateStatus(order.id!, nextStatus);
-              Navigator.pop(context);
-            },
-            child: const Text('Update'),
-          ),
-        ],
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: statuses.map((status) {
+            final isSelected = order.status == status;
+            final color = _statusColor(status);
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: GestureDetector(
+                onTap: () {
+                  if (!isSelected) {
+                    provider.updateStatus(order.id!, status);
+                  }
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? color.withValues(alpha: 0.1)
+                        : Colors.grey.shade50,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: isSelected ? color : Colors.grey.shade200,
+                      width: isSelected ? 2 : 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(_statusIcon(status), color: color, size: 20),
+                      const SizedBox(width: 12),
+                      Text(status,
+                          style: TextStyle(
+                            color: isSelected ? color : const Color(0xFF374151),
+                            fontWeight: isSelected
+                                ? FontWeight.w700
+                                : FontWeight.normal,
+                          )),
+                      const Spacer(),
+                      if (isSelected)
+                        Icon(Icons.check_circle_rounded,
+                            color: color, size: 18),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
