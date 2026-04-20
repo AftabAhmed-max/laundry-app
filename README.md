@@ -67,4 +67,30 @@ flutter run              # for Android
 | createdAt | TEXT | Order creation timestamp |
 
 ## Screenshots
-_(Add screenshots here)_
+
+### Orders List
+![Orders List](screenshots/01_orders_list.png)
+
+### Status Update Dialog
+![Status Dialog](screenshots/02_status_dialog.png)
+
+### Add New Order
+![Add Order](screenshots/03_add_order_form.png)
+
+### Dashboard
+![Dashboard](screenshots/04_dashboard.png)
+
+### Filter by Status
+![Filter](screenshots/05_filter_washing.png)
+
+### Search Functionality
+![Search](screenshots/06_search.png)
+
+### Database (DB Browser SQLite)
+![Database](screenshots/07_database_browser.png)
+
+### Project Structure & Code
+![Code Overview](screenshots/08_code_overview.png)
+
+## Demo Video
+[Watch Demo](screenshots/laundry_app_demo.mp4)
