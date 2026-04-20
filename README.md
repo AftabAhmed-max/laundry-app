@@ -93,4 +93,4 @@ flutter run              # for Android
 ![Code Overview](screenshots/08_code_overview.png)
 
 ## Demo Video
-[Watch Demo](screenshots/laundry_app_demo.mp4)
+https://github.com/AftabAhmed-max/laundry-app/raw/main/screenshots/laundry_app_demo.mp4
