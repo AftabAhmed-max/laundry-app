@@ -94,3 +94,15 @@ flutter run              # for Android
 
 ## Demo Video
 https://github.com/AftabAhmed-max/laundry-app/raw/main/screenshots/laundry_app_demo.mp4
+
+## Download & Run
+
+### Windows
+1. Download `laundry_app_windows.zip` from [Releases](https://github.com/AftabAhmed-max/laundry-app/releases/tag/v1.0.0)
+2. Extract the zip
+3. Run `laundry_app.exe`
+
+### Android
+1. Download `laundry_app_android.apk` from [Releases](https://github.com/AftabAhmed-max/laundry-app/releases/tag/v1.0.0)
+2. Enable "Install from unknown sources" in phone settings
+3. Install and open the app
